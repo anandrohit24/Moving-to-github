@@ -17,7 +17,6 @@ public class Git {
 		 driver = new ChromeDriver();
 		driver.get("https://practicetestautomation.com/practice-test-login/");
 	}
-
 	@Test(priority=1)
 	void fail()
 	{
