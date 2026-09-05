@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -14,7 +15,8 @@ public class Git {
 	@BeforeClass
 	void setup()
 	{
-		 driver = new ChromeDriver();
+		  ChromeOptions options = new ChromeOptions();
+		 driver = new ChromeDriver(options);
 		driver.get("https://practicetestautomation.com/practice-test-login/");
 	}
 	@Test(priority=1)
