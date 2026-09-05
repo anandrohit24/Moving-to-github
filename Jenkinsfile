@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven-3'
+    }
+
     stages {
 
         stage('Build') {
@@ -24,16 +28,8 @@ pipeline {
 
     post {
         always {
-            echo 'Publishing test results...'
-            junit '**/target/surefire-reports/*.xml'
-        }
-
-        success {
-            echo 'Build and test execution successful!'
-        }
-
-        failure {
-            echo 'Build or test execution failed!'
+            junit testResults: '**/target/surefire-reports/*.xml',
+                  allowEmptyResults: true
         }
     }
 }
